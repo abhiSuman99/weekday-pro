@@ -43,15 +43,16 @@ const JobList = () => {
   // Filter jobs based on filter values
   const filteredJobs = jobs.filter(job => {
     const meetsMinExperience = !filters.minExperience || job.minExp >= parseInt(filters.minExperience);
-    const matchesCompanyName = !filters.companyName || job.companyName.toLowerCase().includes(filters.companyName.toLowerCase());
-    const matchesLocation = !filters.location || job.location.toLowerCase().includes(filters.location.toLowerCase());
-    const matchesTechStack = !filters.techStack || job.techStack.toLowerCase().includes(filters.techStack.toLowerCase());
-    const matchesRole = !filters.role || (job.role && job.role.toLowerCase().includes(filters.role.toLowerCase()));
-    const meetsMinBasePay = !filters.minBasePay || job.minBasePay >= parseInt(filters.minBasePay);
+    const matchesCompanyName = !filters.companyName || (job.companyName && job.companyName.toLowerCase().includes(filters.companyName.toLowerCase()));
+    const matchesLocation = !filters.location || (job.location && job.location.toLowerCase().includes(filters.location.toLowerCase()));
+    const matchesTechStack = !filters.techStack || (job.techStack && job.techStack.toLowerCase().includes(filters.techStack.toLowerCase()));
+    const matchesRole = !filters.role || (job.jobRole && job.jobRole.toLowerCase().includes(filters.role.toLowerCase()));
+    const meetsMinBasePay = !filters.minBasePay || job.minJdSalary >= parseInt(filters.minBasePay);
   
-    // Return true if job passes all filter conditions
     return meetsMinExperience && matchesCompanyName && matchesLocation && matchesTechStack && matchesRole && meetsMinBasePay;
   });
+  
+    
   
   // Handler for filter input change
   const handleFilterChange = (event) => {

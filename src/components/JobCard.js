@@ -17,15 +17,15 @@ const JobCard = ({ job }) => {
       <CardContent>
         {/* Title for job role, centered */}
         <Typography variant="h6" style={{ fontSize: "1.2rem", marginBottom: 5, textAlign: "center" }}>
-          {job.jobRole}
+         Role: {job.jobRole}
         </Typography>
         {/* Company name, centered */}
         <Typography variant="subtitle1" style={{ fontSize: "1rem", marginBottom: 5, textAlign: "center" }}>
-          Company: {job.companyName}
+          Company Name: {job.companyName || "Data not given"}
         </Typography>
         {/* Location, centered */}
         <Typography variant="subtitle2" style={{ fontSize: "0.9rem", marginBottom: 10, textAlign: "center" }}>
-          {job.location}
+         Location: {job.location}
         </Typography>
 
         {/* Job description */}
@@ -46,18 +46,22 @@ const JobCard = ({ job }) => {
               {expanded
                 ? job.jobDetailsFromCompany
                 : job.jobDetailsFromCompany.substring(0, 200)}
-              {/* Toggle expand button */}
-              {job.jobDetailsFromCompany &&
-                Object.keys(job.jobDetailsFromCompany).length > 100 && (
-                  <Button size="small" onClick={toggleExpand}>{toggleExpandText}</Button>
-                )}
+              {/* Append Read More/Read Less button if job details are long enough */}
+              {job.jobDetailsFromCompany.length > 200 && (
+                <Button size="small" onClick={toggleExpand}>{toggleExpandText}</Button>
+              )}
             </Typography>
           </Card>
         </div>
 
         {/* Experience required */}
         <Typography variant="body2" style={{ fontSize: "0.9rem", marginTop: 10 }}>
-          Experience Required: {job.minExp} - {job.maxExp}
+          Experience Required: {job.minExp} - {job.maxExp} years
+        </Typography>
+
+        {/* Salary and Currency */}
+        <Typography variant="body2" style={{ fontSize: "0.9rem", marginTop: 10 }}>
+          Salary: {job.minJdSalary} {job.salaryCurrencyCode}
         </Typography>
 
         {/* Apply button */}
