@@ -1,10 +1,4 @@
-# Getting Started with Create React App
-To start the project in Local
-Step1- Clone the code in you local
-Step2- npm install
-step3- npm start
-
-
+# Getting Started with Weekday-pro
 
 
 
@@ -17,11 +11,11 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Available Scripts
 
-In the project directory, you can run:
-To start the project in Local
-Step1- Clone the code in you local
-Step2- npm install
-step3- npm start
+In the project directory, you can run:\
+To start the project in Local.\
+Step1- Clone the code in you local.\
+Step2- npm install.\
+step3- npm start.\
 
 ### `npm start`
 
